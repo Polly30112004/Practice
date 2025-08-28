@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления покупателями</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Система управления покупателями</h1>
+            <button id="logout-btn" class="logout-btn">Выйти</button>
+        </header>
+
+        <div id="auth-container" class="auth-container">
+            <h2>Авторизация</h2>
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button id="login-btn" class="btn">Войти</button>
+            <p id="auth-message" class="message"></p>
+        </div>
+
+        <div id="content" class="content hidden">
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Поиск по имени или телефону...">
+                    <button id="search-btn" class="btn">Поиск</button>
+                </div>
+                <button id="add-customer-btn" class="btn">Добавить покупателя</button>
+            </div>
+
+            <div id="customer-form-container" class="form-container hidden">
+                <h2 id="form-title">Добавить нового покупателя</h2>
+                <div class="form-group">
+                    <label for="customer-name">Имя:</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Телефон:</label>
+                    <input type="text" id="customer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Адрес:</label>
+                    <input type="text" id="customer-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-count">Количество заказов:</label>
+                    <input type="number" id="customer-count" min="0" value="0" required>
+                </div>
+                <button id="save-customer-btn" class="btn">Сохранить</button>
+                <button id="cancel-customer-btn" class="btn btn-secondary">Отмена</button>
+            </div>
+
+            <div class="table-container">
+                <h2>Список покупателей</h2>
+                <table id="customers-table">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Телефон</th>
+                            <th>Адрес</th>
+                            <th>Количество заказов</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customers-table-body">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Модальное окно подтверждения -->
+        <div id="confirmation-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Подтверждение изменения</h3>
+                <p id="confirmation-message">Вы уверены, что хотите внести эти изменения?</p>
+                <div class="modal-buttons">
+                    <button id="confirm-yes" class="btn">Да</button>
+                    <button id="confirm-no" class="btn btn-secondary">Нет</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
